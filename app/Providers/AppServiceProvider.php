@@ -12,6 +12,10 @@ use App\Repositories\AuthRepository;
 use App\Repositories\Interfaces\AuthInterface;
 use App\Services\Interfaces\AuthService;
 use App\Services\AuthServiceImpl;
+use App\Repositories\UsersRepository;
+use App\Repositories\Interfaces\UsersInterface;
+use App\Services\Interfaces\UsersService;
+use App\Services\UsersServiceImpl;
 use App\Database\Interfaces\DBInterface;
 use App\Database\DB;
 
@@ -37,6 +41,9 @@ class AppServiceProvider
 
         $this->serviceProvider->addInstance(AuthInterface::class, new AuthRepository($this->serviceProvider->get(DBInterface::class)));
         $this->serviceProvider->addInstance(AuthService::class, new AuthServiceImpl);
+
+        $this->serviceProvider->addInstance(UsersInterface::class, new UsersRepository($this->serviceProvider->get(DBInterface::class)));
+        $this->serviceProvider->addInstance(UsersService::class, new UsersServiceImpl);
     }
 
     public function dotEnv()

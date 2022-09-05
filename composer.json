@@ -6,6 +6,7 @@
     },
     "autoload": {
         "files": [
+            "app/Providers/AppServiceProvider.php",
             "app/helpers/helpers.php"
         ],
         "psr-4": {

@@ -2,7 +2,8 @@
     "require": {
         "robmorgan/phinx": "^0.12.12",
         "vlucas/phpdotenv": "^5.4",
-        "rakit/validation": "^1.4"
+        "rakit/validation": "^1.4",
+        "steampixel/simple-php-router": "^0.7.0"
     },
     "autoload": {
         "files": [

@@ -32,6 +32,7 @@ class ArticlesController extends BaseController
             $rules =  [
                 'subject' => 'required',
                 'content' => "required",
+                'article_image' => "required",
                 'author' => 'nullable|exist:users,id'
             ];
 
@@ -56,6 +57,7 @@ class ArticlesController extends BaseController
             $rules =  [
                 'subject' => 'required',
                 'content' => "required",
+                'article_image' => "required",
                 'author' => 'nullable|exist:users,id'
             ];
 

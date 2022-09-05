@@ -66,3 +66,70 @@ if (!function_exists('redirect')) {
         exit();
     }
 }
+
+if (!function_exists('paginator_links')) {
+    function paginator_links(?int $total_pages, ?int $start): void
+    {
+        for ($page = 1; $page <= $total_pages; $page++) {
+            if ($page === $start) {
+                echo "<li class='selected'><span>$page</span></li>";
+            } else {
+                echo "<li><a href='" . CURRENT_PATH . "/page/$page'>$page</a></li>";
+            }
+        }
+    }
+}
+
+if (!function_exists('get_time_diff')) {
+    function get_time_diff($dateTime): string
+    {
+        $creationDate = strtotime($dateTime);
+        $today = strtotime(date('Y-m-d H:i:s'));
+        $timeDiff = $today - $creationDate;
+        $years = 60 * 60 * 24 * 365;
+        $months = 60 * 60 * 24 * 30;
+        $days = 60 * 60 * 24;
+        $hours = 60 * 60;
+        $minutes = 60;
+
+        if (intval($timeDiff / $years) > 1) {
+            return intval($timeDiff / $years) . " years ago";
+        } else if (intval($timeDiff / $years) > 0) {
+            return intval($timeDiff / $years) . " year ago";
+        } else if (intval($timeDiff / $months) > 1) {
+            return intval($timeDiff / $months) . " months ago";
+        } else if (intval(($timeDiff / $months)) > 0) {
+            return intval(($timeDiff / $months)) . " month ago";
+        } else if (intval(($timeDiff / $days)) > 1) {
+            return intval(($timeDiff / $days)) . " days ago";
+        } else if (intval(($timeDiff / $days)) > 0) {
+            return intval(($timeDiff / $days)) . " day ago";
+        } else if (intval(($timeDiff / $hours)) > 1) {
+            return intval(($timeDiff / $hours)) . " hours ago";
+        } else if (intval(($timeDiff / $hours)) > 0) {
+            return intval(($timeDiff / $hours)) . " hour ago";
+        } else if (intval(($timeDiff / $minutes)) > 1) {
+            return intval(($timeDiff / $minutes)) . " minutes ago";
+        } else if (intval(($timeDiff / $minutes)) > 0) {
+            return intval(($timeDiff / $minutes)) . " minute ago";
+        } else if (intval(($timeDiff)) > 1) {
+            return intval(($timeDiff)) . " seconds ago";
+        } else {
+            return "few seconds ago";
+        }
+    }
+}
+
+if (!function_exists('show_flash_message')) {
+    function show_flash_message(): void
+    {
+        if (sessions()->has('flashMessage')) {
+            echo '<div class="alert alert-danger text-center text-danger" style="color: red;">';
+            foreach (sessions()->get('flashMessage')['data'] as $value) {
+                echo "<p>$value</p>";
+            }
+            echo "</div>";
+            sessions()->remove('flashMessage');
+        }
+    }
+}

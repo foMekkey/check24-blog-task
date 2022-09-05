@@ -18,6 +18,7 @@ define('BASEPATH', "/" . $cur_dir[count($cur_dir) - 1] . "/");
 define('VIEWS', __DIR__ . '/views/');
 define('CURRENT_PATH', $actual_link);
 define('CURRENT_PATH_FULL', $curPageURL);
+define('MAX_TEXT_LENGTH', 1000);
 
 require_once realpath(__DIR__ . '/routes/routes.php');
 Route::run(BASEPATH);

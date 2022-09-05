@@ -50,3 +50,19 @@ if (!function_exists('view')) {
         return $output;
     }
 }
+
+if (!function_exists('redirect')) {
+    function redirect(string $route, array $flashMessage = [], bool $redirectBack = false): void
+    {
+        if (count($flashMessage) > 0)
+            sessions()->set('flashMessage', $flashMessage);
+
+        $route = str_replace(env('APP_URL'), '', $route);
+        if (!$redirectBack) {
+            header("Location: " . env('APP_URL') . "$route", true, 301);
+        } else {
+            header("Location: " . $_SERVER['HTTP_REFERER'], true, 301);
+        }
+        exit();
+    }
+}

@@ -16,6 +16,10 @@ use App\Repositories\ArticleRepository;
 use App\Repositories\Interfaces\ArticleInterface;
 use App\Services\Interfaces\ArticlesService;
 use App\Services\ArticlesServiceImpl;
+use App\Repositories\CommentRepository;
+use App\Repositories\Interfaces\CommentsInterface;
+use App\Services\Interfaces\CommentsService;
+use App\Services\CommentsServiceImpl;
 use App\Database\Interfaces\DBInterface;
 use App\Database\DB;
 

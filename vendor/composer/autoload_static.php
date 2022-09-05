@@ -41,7 +41,16 @@ class ComposerStaticInitc1fe3ca59e0e0983f69124cb89f38982
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'PhpOption\\' => 10,
             'Phinx\\' => 6,
+        ),
+        'G' => 
+        array (
+            'GrahamCampbell\\ResultType\\' => 26,
+        ),
+        'D' => 
+        array (
+            'Dotenv\\' => 7,
         ),
         'C' => 
         array (
@@ -49,6 +58,10 @@ class ComposerStaticInitc1fe3ca59e0e0983f69124cb89f38982
             'Cake\\Datasource\\' => 16,
             'Cake\\Database\\' => 14,
             'Cake\\Core\\' => 10,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -113,9 +126,21 @@ class ComposerStaticInitc1fe3ca59e0e0983f69124cb89f38982
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'PhpOption\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
         'Phinx\\' => 
         array (
             0 => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx',
+        ),
+        'GrahamCampbell\\ResultType\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
+        ),
+        'Dotenv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
         'Cake\\Utility\\' => 
         array (
@@ -132,6 +157,10 @@ class ComposerStaticInitc1fe3ca59e0e0983f69124cb89f38982
         'Cake\\Core\\' => 
         array (
             0 => __DIR__ . '/..' . '/cakephp/core',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

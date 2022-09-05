@@ -1,0 +1,21 @@
+Options -Indexes
+DirectoryIndex index.php
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA]
+
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files *.json>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files *.lock>
+    Order allow,deny
+    Deny from all
+</Files>

@@ -18,6 +18,7 @@ class ComposerStaticInitc1fe3ca59e0e0983f69124cb89f38982
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '948ad5488880985ff1c06721a4e447fe' => __DIR__ . '/..' . '/cakephp/utility/bootstrap.php',
+        '8d22c39e6567f3f68fd617b76fa352ab' => __DIR__ . '/../..' . '/app/helpers/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -35,6 +36,10 @@ class ComposerStaticInitc1fe3ca59e0e0983f69124cb89f38982
             'Symfony\\Component\\Filesystem\\' => 29,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\Config\\' => 25,
+        ),
+        'R' => 
+        array (
+            'Rakit\\Validation\\' => 17,
         ),
         'P' => 
         array (
@@ -113,6 +118,10 @@ class ComposerStaticInitc1fe3ca59e0e0983f69124cb89f38982
         'Symfony\\Component\\Config\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/config',
+        ),
+        'Rakit\\Validation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rakit/validation/src',
         ),
         'Psr\\SimpleCache\\' => 
         array (

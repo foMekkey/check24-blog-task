@@ -23,6 +23,7 @@ final class ArticlesTableMigration extends AbstractMigration
         $table->addColumn($column)
             ->addColumn('subject', 'string')
             ->addColumn('content', 'text')
+            ->addColumn('article_image', 'string')
             ->addColumn('author', 'biginteger')
             ->addColumn('created_at', 'datetime')
             ->addColumn('updated_at', 'datetime')

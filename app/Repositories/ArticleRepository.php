@@ -23,9 +23,10 @@ class ArticleRepository implements ArticleInterface
 
     public function create($articleData): bool
     {
-        $article = $this->database->connect()->prepare("INSERT INTO `articles` (`subject`, `content`, `author`, `created_at` ,`updated_at`) VALUES (:subject, :content, :author, :created_at, :updated_at);");
+        $article = $this->database->connect()->prepare("INSERT INTO `articles` (`subject`, `content`, `author`, `article_image`, `created_at` ,`updated_at`) VALUES (:subject, :content, :author, :article_image, :created_at, :updated_at);");
         $article->bindParam(":subject", $articleData['subject']);
         $article->bindParam(":content", $articleData['content']);
+        $article->bindParam(":article_image", $articleData['article_image']);
         $article->bindParam(":author", sessions()->get('userId'), PDO::PARAM_INT);
         $article->bindParam(":created_at", $this->currentDate);
         $article->bindParam(":updated_at", $this->currentDate);
@@ -37,9 +38,10 @@ class ArticleRepository implements ArticleInterface
 
     public function update($id, $articleData): bool
     {
-        $article = $this->database->connect()->prepare("UPDATE `articles` SET `subject`=:subject, `content`=:content, `updated_at`=:updated_at WHERE `id`=:id;");
+        $article = $this->database->connect()->prepare("UPDATE `articles` SET `subject`=:subject, `content`=:content, `article_image`=:article_image, `updated_at`=:updated_at WHERE `id`=:id;");
         $article->bindParam(":subject", $articleData['subject']);
         $article->bindParam(":content", $articleData['content']);
+        $article->bindParam(":article_image", $articleData['article_image']);
         $article->bindParam(":updated_at", $this->currentDate);
         $article->bindParam(":id", $id, PDO::PARAM_INT);
         $article->execute();

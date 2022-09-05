@@ -58,7 +58,7 @@ class ArticleRepository implements ArticleInterface
         $total_pages = (int) ceil($total_results / $limit);
         $starting_rows = ($start - 1) * $limit;
 
-        $article = $this->database->connect()->prepare("SELECT `id` articleId, `subject` articleSubject, (SELECT `name` FROM `users` WHERE `users`.`id` = `articles`.`author`) author , `content` articleContent , created_at creationdate, created_at lastModifiedDate  FROM `articles` ORDER BY $orderColumn $orderDescOrAsc LIMIT :startFrom, :perPage;");
+        $article = $this->database->connect()->prepare("SELECT `id` articleId, `subject` articleSubject, (SELECT `name` FROM `users` WHERE `users`.`id` = `articles`.`author`) author , `content` articleContent, `article_image` articleImage , created_at creationdate, created_at lastModifiedDate  FROM `articles` ORDER BY $orderColumn $orderDescOrAsc LIMIT :startFrom, :perPage;");
         $article->bindParam(":startFrom", $starting_rows, PDO::PARAM_INT);
         $article->bindParam(":perPage", $limit, PDO::PARAM_INT);
         $article->execute();
@@ -77,7 +77,7 @@ class ArticleRepository implements ArticleInterface
 
     public function find($id): array
     {
-        $article = $this->database->connect()->prepare("SELECT `id` articleId, `subject` articleSubject , `content` articleContent , (SELECT `name` FROM `users` WHERE `users`.`id` = `articles`.`author`) author , created_at creationdate, created_at lastModifiedDate FROM `articles` WHERE id=:id;");
+        $article = $this->database->connect()->prepare("SELECT `id` articleId, `subject` articleSubject , `content` articleContent, `article_image` articleImage  , (SELECT `name` FROM `users` WHERE `users`.`id` = `articles`.`author`) author , created_at creationdate, created_at lastModifiedDate FROM `articles` WHERE id=:id;");
         $article->bindParam(":id", $id, PDO::PARAM_INT);
         $article->execute();
         $getArticle = $article->fetch(PDO::FETCH_ASSOC);
